@@ -87,9 +87,9 @@ $after_assoc_logged = mysqli_fetch_assoc($select_logged_user_res);
 							
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                    <img src="/Opu2402/dashboard_asset/images/profile/17.jpg" width="20" alt=""/>
+                                    <img src="/Opu2402/uploads/users/<?=$after_assoc_logged['photo']?>" width="20" alt=""/>
 									<div class="header-info">
-										<span class="text-black"><strong>Peter Parkur</strong></span>
+										<span class="text-black"><strong><?=$after_assoc_logged['name']?></strong></span>
 										<p class="fs-12 mb-0">Super Admin</p>
 									</div>
                                 </a>
@@ -120,58 +120,22 @@ $after_assoc_logged = mysqli_fetch_assoc($select_logged_user_res);
         <div class="deznav">
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="/Opu2402/dashboard.php">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
-                        <ul aria-expanded="false">
-							<li><a href="index.html">Dashboard</a></li>
-							<li><a href="workout-statistic.html">Workout Statistic</a></li>
-							<li><a href="workoutplan.html">Workout Plan</a></li>
-							<li><a href="distance-map.html">Distance Map</a></li>
-							<li><a href="food-menu.html">Diet Food Menu</a></li>
-							<li><a href="personal-record.html">Personal Record</a></li>
-						</ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <?php if($after_assoc_logged['role'] != 4){ ?>
+                    <li><a class="has-arrow ai-icon" href="/Opu2402/users/users.php">
 							<i class="flaticon-381-television"></i>
-							<span class="nav-text">Apps</span>
+							<span class="nav-text">Users</span>
 						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./email-compose.html">Compose</a></li>
-                                    <li><a href="./email-inbox.html">Inbox</a></li>
-                                    <li><a href="./email-read.html">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./app-calender.html">Calendar</a></li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./ecom-product-grid.html">Product Grid</a></li>
-									<li><a href="./ecom-product-list.html">Product List</a></li>
-									<li><a href="./ecom-product-detail.html">Product Details</a></li>
-									<li><a href="./ecom-product-order.html">Order</a></li>
-									<li><a href="./ecom-checkout.html">Checkout</a></li>
-									<li><a href="./ecom-invoice.html">Invoice</a></li>
-									<li><a href="./ecom-customers.html">Customers</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <?php } ?>
+                    <li><a class="has-arrow ai-icon" href="/Opu2402/logo/logo.php">
 							<i class="flaticon-381-controls-3"></i>
-							<span class="nav-text">Charts</span>
+							<span class="nav-text">Logo</span>
 						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-internet"></i>

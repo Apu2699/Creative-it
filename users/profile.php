@@ -144,14 +144,22 @@ require '../db.php';
                 <h3 class="text-white">Update Profile Photo</h3>
             </div>
             <div class="card-body">
+                <?php if(isset($_SESSION['photo'])){ ?>
+                    <div class="alert alert-success"><?=$_SESSION['photo']?></div>
+                    <?php }
+                     unset($_SESSION['photo'])?>
                 <form action="photo_update.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
+                        <input type="hidden" name= "user_id" value= "<?=$after_assoc_logged['id']?>">
                         <label for="" class="form-label">Upload Photo</label>
-                        <input type="file" name="photo" class="form-control">
+                        <input type="file" name="photo" class="form-control"  onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                         <?php if(isset($_SESSION['err'])){ ?>
                             <strong class="text-danger"><?=$_SESSION['err']?></strong>
                         <?php } 
                         unset($_SESSION['err']) ?>
+                        <div class="mt-2">
+                            <img src="../uploads/users/<?=$after_assoc_logged['photo']?>" id="blah" width="200" alt="">
+                        </div>
                     </div>
                         </div>
                     <div class="mb-3">
