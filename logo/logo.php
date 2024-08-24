@@ -14,6 +14,9 @@ $after_assoc_logo = mysqli_fetch_assoc($logo_res);
                 <h3 class="text-white">Change Logo</h3>
             </div>
             <div class="card-body">
+            <?php if(isset(  $_SESSION['logo'])){ ?>
+                 <div class="alert alert-success"><?= $_SESSION['logo']?></div>
+                <?php } unset($_SESSION['logo'])?>
                 <form action="logo_update.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="" class="form-label">Change Header Logo</label>
@@ -21,10 +24,10 @@ $after_assoc_logo = mysqli_fetch_assoc($logo_res);
                         <div class="my-2">
                             <img src="../uploads/logo/<?=$after_assoc_logo['header_logo']?>" id="Opu" alt="" width="200">
                         </div>
-                        <?php if(isset(  $_SESSION['er'])){ ?>
+                        <?php if(isset(  $_SESSION['err'])){ ?>
                             <strong class="text-danger"><?=$_SESSION['er']?></strong>
                         <?php } 
-                        unset($_SESSION['er'])?>
+                        unset($_SESSION['err'])?>
                      </div>
                      <div class="mb-3">
                         <label for="" class="form-label">Change Footer Logo</label>
@@ -32,6 +35,10 @@ $after_assoc_logo = mysqli_fetch_assoc($logo_res);
                         <div class="my-2">
                             <img src="../uploads/logo/<?=$after_assoc_logo['footer_logo']?>" id="Opu2" alt="" width="200">
                         </div>
+                        <?php if(isset(  $_SESSION['err2'])){ ?>
+                            <strong class="text-danger"><?=$_SESSION['er2']?></strong>
+                        <?php } 
+                        unset($_SESSION['err2'])?>
                      </div>
                      <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Update Logo</button>

@@ -1,3 +1,12 @@
+<?php 
+require 'db.php';
+
+$logo = "SELECT * FROM logos";
+$logo_res = mysqli_query($db_connection, $logo);
+$after_assoc_logo = mysqli_fetch_assoc($logo_res);
+
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -38,7 +47,7 @@
 <nav class="navbar navbar-expand-lg bg-transprent py-4 fixed-top navigation" id="navbar">
 	<div class="container">
 	  <a class="navbar-brand" href="index.html">
-	  	<h2 class="logo">Ratsaan.</h2>
+	  	<img src="uploads/logo/<?=$after_assoc_logo['header_logo']?>" alt="" width="120">
 	  </a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="ti-view-list"></span>
@@ -444,7 +453,7 @@
 	<div class="container">
 		<div class="row align-items-center text-center text-lg-left">
 			<div class="col-lg-2">
-				<h2 class="logo mb-4">Ratsaan.</h2>
+			<img src="uploads/logo/<?=$after_assoc_logo['footer_logo']?>" alt="" width="120">
 			</div>
 			<div class="col-lg-10">
 				<div class="text-right">
